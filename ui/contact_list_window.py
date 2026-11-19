@@ -63,13 +63,13 @@ class ContactListWindow(MainWindow):
         has_selection = len(self._contact_table.selectedItems()) > 0
         self._remove_button.setEnabled(has_selection)
 
-    # @Slot()
-    # def __on_remove_clicked(self) -> None:
-    #     """Prompts confirmation and removes the selected contact from the table."""
-    #     row = self._contact_table.currentRow()
+    @Slot()
+    def __on_remove_clicked(self) -> None:
+        """Prompts confirmation and removes the selected contact from the table."""
+        row = self._contact_table.currentRow()
 
-    #     if row >= 0:
-    #         contact_name = self._contact_table.item(row, 0).text()
+        if row >= 0:
+            contact_name = self._contact_table.item(row, 0).text()
 
     #         reply = QMessageBox.question(
     #             self,
