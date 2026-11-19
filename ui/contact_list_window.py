@@ -42,42 +42,42 @@ class ContactListWindow(MainWindow):
 
         self._add_button.setEnabled(name_valid and phone_valid)
 
-    @Slot()
-    def __on_add_clicked(self) -> None:
-        """Adds a new contact row to the table and resets the input fields."""
-        name = self._name_line_edit.text().strip()
-        phone = self._phone_line_edit.text()
+    # @Slot()
+    # def __on_add_clicked(self) -> None:
+    #     """Adds a new contact row to the table and resets the input fields."""
+    #     name = self._name_line_edit.text().strip()
+    #     phone = self._phone_line_edit.text()
 
-        row = self._contact_table.rowCount()
-        self._contact_table.insertRow(row)
-        self._contact_table.setItem(row, 0, QTableWidgetItem(name))
-        self._contact_table.setItem(row, 1, QTableWidgetItem(phone))
+    #     row = self._contact_table.rowCount()
+    #     self._contact_table.insertRow(row)
+    #     self._contact_table.setItem(row, 0, QTableWidgetItem(name))
+    #     self._contact_table.setItem(row, 1, QTableWidgetItem(phone))
 
-        self._name_line_edit.clear()
-        self._phone_line_edit.clear()
-        self._name_line_edit.setFocus()
+    #     self._name_line_edit.clear()
+    #     self._phone_line_edit.clear()
+    #     self._name_line_edit.setFocus()
 
-    @Slot()
-    def __on_selection_changed(self) -> None:
-        """Enables the remove button when a table row is selected."""
-        has_selection = len(self._contact_table.selectedItems()) > 0
-        self._remove_button.setEnabled(has_selection)
+    # @Slot()
+    # def __on_selection_changed(self) -> None:
+    #     """Enables the remove button when a table row is selected."""
+    #     has_selection = len(self._contact_table.selectedItems()) > 0
+    #     self._remove_button.setEnabled(has_selection)
 
-    @Slot()
-    def __on_remove_clicked(self) -> None:
-        """Prompts confirmation and removes the selected contact from the table."""
-        row = self._contact_table.currentRow()
+    # @Slot()
+    # def __on_remove_clicked(self) -> None:
+    #     """Prompts confirmation and removes the selected contact from the table."""
+    #     row = self._contact_table.currentRow()
 
-        if row >= 0:
-            contact_name = self._contact_table.item(row, 0).text()
+    #     if row >= 0:
+    #         contact_name = self._contact_table.item(row, 0).text()
 
-            reply = QMessageBox.question(
-                self,
-                "Remove Contact",
-                f"Do you want to remove the contact {contact_name}?",
-                QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
-                QMessageBox.StandardButton.No,
-            )
+    #         reply = QMessageBox.question(
+    #             self,
+    #             "Remove Contact",
+    #             f"Do you want to remove the contact {contact_name}?",
+    #             QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+    #             QMessageBox.StandardButton.No,
+    #         )
 
-            if reply == QMessageBox.StandardButton.Yes:
-                self._contact_table.removeRow(row)
+    #         if reply == QMessageBox.StandardButton.Yes:
+    #             self._contact_table.removeRow(row)
