@@ -71,13 +71,13 @@ class ContactListWindow(MainWindow):
         if row >= 0:
             contact_name = self._contact_table.item(row, 0).text()
 
-    #         reply = QMessageBox.question(
-    #             self,
-    #             "Remove Contact",
-    #             f"Do you want to remove the contact {contact_name}?",
-    #             QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
-    #             QMessageBox.StandardButton.No,
-    #         )
+            reply = QMessageBox.question(
+                self,
+                "Remove Contact",
+                f"Do you want to remove the contact {contact_name}?",
+                QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+                QMessageBox.StandardButton.No,
+            )
 
-    #         if reply == QMessageBox.StandardButton.Yes:
-    #             self._contact_table.removeRow(row)
+            if reply == QMessageBox.StandardButton.Yes:
+                self._contact_table.removeRow(row)
