@@ -42,20 +42,20 @@ class ContactListWindow(MainWindow):
 
         self._add_button.setEnabled(name_valid and phone_valid)
 
-    # @Slot()
-    # def __on_add_clicked(self) -> None:
-    #     """Adds a new contact row to the table and resets the input fields."""
-    #     name = self._name_line_edit.text().strip()
-    #     phone = self._phone_line_edit.text()
+    @Slot()
+    def __on_add_clicked(self) -> None:
+        """Adds a new contact row to the table and resets the input fields."""
+        name = self._name_line_edit.text().strip()
+        phone = self._phone_line_edit.text()
 
-    #     row = self._contact_table.rowCount()
-    #     self._contact_table.insertRow(row)
-    #     self._contact_table.setItem(row, 0, QTableWidgetItem(name))
-    #     self._contact_table.setItem(row, 1, QTableWidgetItem(phone))
+        row = self._contact_table.rowCount()
+        self._contact_table.insertRow(row)
+        self._contact_table.setItem(row, 0, QTableWidgetItem(name))
+        self._contact_table.setItem(row, 1, QTableWidgetItem(phone))
 
-    #     self._name_line_edit.clear()
-    #     self._phone_line_edit.clear()
-    #     self._name_line_edit.setFocus()
+        self._name_line_edit.clear()
+        self._phone_line_edit.clear()
+        self._name_line_edit.setFocus()
 
     # @Slot()
     # def __on_selection_changed(self) -> None:
